@@ -1,27 +1,19 @@
-import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom/client";
 
-import Pet from "./Pet";
+// import Pet from "./Pet";
+import SearchParams from "./SearchParams";
 
 const App = () => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Adopt me Heading !"),
-    React.createElement(Pet, {
-      name: "Luna",
-      animal: "Dog",
-      breed: "Havanese",
-    }),
-    React.createElement(Pet, {
-      name: "Pepper",
-      animal: "Bird",
-      breed: "Cockateil",
-    }),
-    React.createElement(Pet, {
-      name: "Doink",
-      animal: "Cat",
-      breed: "mix",
-    }),
-  ]);
+  return (
+    <div>
+      <h1>Adopt me Heading !</h1>
+      <SearchParams />
+    </div>
+  );
 };
 
-render(React.createElement(App), document.getElementById("root"));
+// Create a root.
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// root.render new API - React 18
+root.render(<App />);

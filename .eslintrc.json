@@ -1,6 +1,16 @@
 {
-  "extends": ["eslint:recommended", "prettier"], // Prettier must come last !
-  "plugins": [],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended", // Accessibility - stop you from using Events on non accessible elements like IVs etc...
+    "prettier" // Prettier must always come last !
+  ],
+  "rules": {
+    "react/prop-types": 0, // 1 is warning & 2 is error
+    "react/react-in-jsx-scope": 0 // 1 will alwas ask you to => import React from 'react'
+  },
+  "plugins": ["react", "import", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module",
@@ -12,5 +22,10 @@
     "es6": true,
     "browser": true,
     "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
