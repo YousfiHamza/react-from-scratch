@@ -1,0 +1,3 @@
+{
+  "plugins": ["@babel/plugin-proposal-class-properties"] // <= this will be add to the transpiler (babel) config setup by parcel
+}
