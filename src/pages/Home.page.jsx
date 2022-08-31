@@ -1,11 +1,21 @@
 import React from "react";
-import SearchParams from "../components/SearchParams";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import SearchParams from "../components/SearchParams.component";
+import Details from "../components/Details.component";
 
 export default function HomePage() {
   return (
-    <div>
-      <h1>Adopt me Heading !</h1>
-      <SearchParams />
-    </div>
+    <>
+      <BrowserRouter>
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
+        <Routes>
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/" element={<SearchParams />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }

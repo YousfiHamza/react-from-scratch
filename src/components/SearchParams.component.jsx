@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-import Results from "./Results";
+import Results from "./Results.component";
 
 import useBreedList from "../hooks/useBreedList";
 
@@ -41,7 +41,7 @@ const SearchParams = () => {
     <div className="search-params">
       <form onSubmit={handleSubmit}>
         <label htmlFor="location">
-          Location -{status}
+          Location
           <input id="location" value={location} placeholder="Location" onChange={handleChange} />
         </label>
         <label htmlFor="animal">
@@ -80,6 +80,7 @@ const SearchParams = () => {
           </select>
         </label>
         <button>Submit</button>
+        status : {status}
       </form>
       <div>
         <Results pets={pets} />
