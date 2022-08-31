@@ -1,8 +1,9 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useContext } from "react";
 
 import Results from "./Results.component";
 
 import useBreedList from "../hooks/useBreedList";
+import ThemeContext from "../context/ThemeContext";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -35,7 +36,9 @@ const SearchParams = () => {
     [animal, breed, location]
   );
 
-  console.log("Search Param");
+  const [theme, setTheme] = useContext(ThemeContext);
+
+  console.log("theme : ", theme);
 
   return (
     <div className="search-params">
@@ -79,7 +82,20 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button>Submit</button>
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            onBlur={(e) => setTheme(e.target.value)}
+          >
+            <option value="peru">Peru</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="mediumorchid">Medium Orchid</option>
+          </select>
+        </label>
+        <button style={{ background: theme }}>Submit</button>
         status : {status}
       </form>
       <div>
