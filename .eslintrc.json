@@ -3,6 +3,7 @@
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended", // no hooks inside loops or conditions etc...
     "plugin:jsx-a11y/recommended", // Accessibility - stop you from using Events on non accessible elements like IVs etc...
     "prettier" // Prettier must always come last !
   ],
@@ -10,7 +11,7 @@
     "react/prop-types": 0, // 1 is warning & 2 is error
     "react/react-in-jsx-scope": 0 // 1 will alwas ask you to => import React from 'react'
   },
-  "plugins": ["react", "import", "jsx-a11y"],
+  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module",
@@ -26,6 +27,11 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }

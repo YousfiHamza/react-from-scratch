@@ -1,16 +1,15 @@
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
-// import Pet from "./Pet";
-import SearchParams from "./SearchParams";
+import HomePage from "./pages/Home.page";
 
-const App = () => {
-  return (
-    <div>
-      <h1>Adopt me Heading !</h1>
-      <SearchParams />
-    </div>
-  );
-};
+import "./App.css";
+
+const App = () => (
+  <StrictMode>
+    <HomePage />
+  </StrictMode>
+);
 
 // Create a root.
 const root = ReactDOM.createRoot(document.getElementById("root"));
