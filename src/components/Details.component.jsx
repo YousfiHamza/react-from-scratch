@@ -4,6 +4,7 @@ import ThemeContext from "../context/ThemeContext";
 
 import Carousel from "./Carousel.component";
 import ErrorBoundary from "./ErrorBoundary.component.";
+import Modal from "./Modal";
 
 class Details extends Component {
   // constructor(props) {
@@ -13,7 +14,7 @@ class Details extends Component {
   // }
   // we can get rid of the constructor because of the plugin we added to .babelrc
 
-  state = { loading: false };
+  state = { loading: false, showModal: false };
 
   async componentDidMount() {
     this.setState({ loading: true });
@@ -23,6 +24,8 @@ class Details extends Component {
 
     this.setState({ loading: false, ...json.pets[0] });
   }
+
+  toggleModal = () => this.setState({ showModal: !this.state.showModal });
 
   render() {
     if (this.state.loading) {
@@ -35,7 +38,7 @@ class Details extends Component {
       );
     }
 
-    const { animal, breed, city, state, description, name, images } = this.state;
+    const { animal, breed, city, state, description, name, images, showModal } = this.state;
 
     return (
       <ThemeContext.Consumer>
@@ -45,8 +48,21 @@ class Details extends Component {
             <div>
               <h1>{name}</h1>
               <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
-              <button style={{ background: theme }}>Adopt {name}</button>
+              <button onClick={this.toggleModal} style={{ background: theme }}>
+                Adopt {name}
+              </button>
               <p>{description}</p>
+              {showModal && (
+                <Modal>
+                  <div>
+                    <h1>Would you like to adopt {name}?</h1>
+                    <div className="buttons">
+                      <a href="https://bit.ly/pet-adopt">Yes</a>
+                      <button onClick={this.toggleModal}>No</button>
+                    </div>
+                  </div>
+                </Modal>
+              )}
             </div>
           </div>
         )}

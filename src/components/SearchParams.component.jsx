@@ -28,7 +28,6 @@ const SearchParams = () => {
         const json = await res.json();
 
         setPets(json.pets);
-        console.log("++ setting pets");
       }
       e.preventDefault();
       requestPets();
@@ -37,8 +36,6 @@ const SearchParams = () => {
   );
 
   const [theme, setTheme] = useContext(ThemeContext);
-
-  console.log("theme : ", theme);
 
   return (
     <div className="search-params">
