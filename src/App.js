@@ -1,18 +1,21 @@
 import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 
 import HomePage from "./pages/Home.page";
 
-import "./App.css";
+const App = () => {
+  return (
+    <StrictMode>
+      <HomePage />
+    </StrictMode>
+  );
+};
 
-const App = () => (
-  <StrictMode>
-    <HomePage />
-  </StrictMode>
-);
+export default App;
 
-// Create a root.
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// UNCOMMENT THIS SECTION FOR CLIENT SIDE RENDERING
+// // Create a root.
+// const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// root.render new API - React 18
-root.render(<App />);
+// // root.render new API - React 18
+// root.render(<App />);

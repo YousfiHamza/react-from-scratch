@@ -1,10 +1,11 @@
-import { Component } from "react";
+import { Component, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 
 import Carousel from "./Carousel.component";
 import ErrorBoundary from "./ErrorBoundary.component.";
-import Modal from "./Modal";
+
+const Modal = lazy(() => import("./Modal"));
 
 class Details extends Component {
   // constructor(props) {
@@ -52,17 +53,19 @@ class Details extends Component {
                 Adopt {name}
               </button>
               <p>{description}</p>
-              {showModal && (
-                <Modal>
-                  <div>
-                    <h1>Would you like to adopt {name}?</h1>
-                    <div className="buttons">
-                      <a href="https://bit.ly/pet-adopt">Yes</a>
-                      <button onClick={this.toggleModal}>No</button>
+              <Suspense fallback={<h1>Loading state suspense !</h1>}>
+                {showModal && (
+                  <Modal>
+                    <div>
+                      <h1>Would you like to adopt {name}?</h1>
+                      <div className="buttons">
+                        <a href="https://bit.ly/pet-adopt">Yes</a>
+                        <button onClick={this.toggleModal}>No</button>
+                      </div>
                     </div>
-                  </div>
-                </Modal>
-              )}
+                  </Modal>
+                )}
+              </Suspense>
             </div>
           </div>
         )}
