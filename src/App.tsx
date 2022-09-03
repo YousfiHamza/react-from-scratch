@@ -1,12 +1,16 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 
 import HomePage from "./pages/Home.page";
+import store from "./redux/store";
 
 const App = () => {
   return (
     <StrictMode>
-      <HomePage />
+      <Provider store={store}>
+        <HomePage />
+      </Provider>
     </StrictMode>
   );
 };
