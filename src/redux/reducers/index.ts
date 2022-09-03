@@ -1,12 +1,6 @@
-import { combineReducers } from "redux";
-import location from "./location";
-import animal from "./animal";
-import breed from "./breed";
-import theme from "./theme";
+import { combineReducers } from "@reduxjs/toolkit";
+import formSearchReducer from "./formSearch";
 
 export default combineReducers({
-  location,
-  breed,
-  animal,
-  theme,
+  formSearchReducer,
 });

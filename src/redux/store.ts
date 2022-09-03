@@ -1,20 +1,14 @@
-import { createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { Animal } from "../types/responsesType";
+import { configureStore } from "@reduxjs/toolkit";
+// import { composeWithDevTools } from "redux-devtools-extension";
 
 import reducer from "./reducers";
 
-export type StateType = {
-  location: string;
-  breed: string;
-  animal: Animal;
-  theme: string;
-};
-
-const store = createStore(
+const store = configureStore({
   reducer,
   // this enables redux dev tools
-  composeWithDevTools()
-);
+  // composeWithDevTools() -- but its enabeled by default in redux toolkit
+});
+
+export type StateType = ReturnType<typeof store.getState>;
 
 export default store;

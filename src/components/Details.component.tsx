@@ -90,7 +90,7 @@ class Details extends Component<PropsType> {
   }
 }
 
-const mapStateToProps = ({ theme }: StateType) => ({ theme });
+const mapStateToProps = ({ formSearchReducer: { theme } }: StateType) => ({ theme });
 
 const ReduxWrappedDetials = connect(mapStateToProps)(Details); // the hard and old way xD
 

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Results from "./Results.component";
 
 import { StateType } from "../redux/store";
-import { changeAnimal, changeBreed, changeLocation, changeTheme } from "../redux/actions";
+import { changeAnimal, changeBreed, changeLocation, changeTheme } from "../redux/reducers/formSearch";
 
 import useBreedList from "../hooks/useBreedList";
 import { Animal, Pet, PetAPIResponse } from "../types/responsesType";
@@ -14,10 +14,10 @@ const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
   const dispatch = useDispatch();
 
-  const animal = useSelector((state: StateType) => state.animal);
-  const location = useSelector((state: StateType) => state.location);
-  const breed = useSelector((state: StateType) => state.breed);
-  const theme = useSelector((state: StateType) => state.theme);
+  const animal = useSelector((state: StateType) => state.formSearchReducer.animal);
+  const location = useSelector((state: StateType) => state.formSearchReducer.location);
+  const breed = useSelector((state: StateType) => state.formSearchReducer.breed);
+  const theme = useSelector((state: StateType) => state.formSearchReducer.theme);
 
   const [pets, setPets] = useState<Pet[]>([]);
 
