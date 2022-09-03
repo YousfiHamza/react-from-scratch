@@ -5,16 +5,22 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended", // no hooks inside loops or conditions etc...
     "plugin:jsx-a11y/recommended", // Accessibility - stop you from using Events on non accessible elements like IVs etc...
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier" // Prettier must always come last !
   ],
   "rules": {
     "react/prop-types": 0, // 1 is warning & 2 is error
-    "react/react-in-jsx-scope": 0 // 1 will alwas ask you to => import React from 'react'
+    "react/react-in-jsx-scope": 0, // 1 will alwas ask you to => import React from 'react'
+    "@typescript-eslint/no-empty-function": 0,
+    "no-console": 2 //
   },
-  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+  "plugins": ["react", "import", "jsx-a11y", "react-hooks", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module",
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     }
@@ -30,8 +36,14 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".jsx"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
       }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     }
   }
 }

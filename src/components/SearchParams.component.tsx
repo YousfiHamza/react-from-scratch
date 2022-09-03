@@ -1,36 +1,37 @@
-import { useState, useCallback, useContext } from "react";
+import { useState, useCallback, useContext, ChangeEvent, FormEvent } from "react";
 
 import Results from "./Results.component";
 
 import useBreedList from "../hooks/useBreedList";
 import ThemeContext from "../context/ThemeContext";
+import { Animal, Pet, PetAPIResponse } from "../types/responsesType";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState<Animal>("dog");
   const [breed, setBreed] = useState("");
-  const [pets, setPets] = useState([]);
+  const [pets, setPets] = useState<Pet[]>([]);
 
   const [breeds, status] = useBreedList(animal);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value);
   };
 
   const handleSubmit = useCallback(
-    (e) => {
+    (e: FormEvent<HTMLFormElement>) => {
       async function requestPets() {
         const res = await fetch(
           `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
         );
-        const json = await res.json();
+        const json = (await res.json()) as PetAPIResponse;
 
         setPets(json.pets);
       }
       e.preventDefault();
-      requestPets();
+      void requestPets();
     },
     [animal, breed, location]
   );
@@ -49,8 +50,8 @@ const SearchParams = () => {
           <select
             id="animal"
             value={animal}
-            onChange={(e) => {
-              setAnimal(e.target.value);
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+              setAnimal(e.target.value as Animal);
               setBreed("");
             }}
           >

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import ThemeContext from "../context/ThemeContext";
 
@@ -9,7 +9,7 @@ import Details from "../components/Details.component";
 export default function HomePage() {
   const theme = useState("gold");
   return (
-    <>
+    <BrowserRouter>
       <header>
         <Link to="/">Adopt Me!</Link>
       </header>
@@ -19,6 +19,6 @@ export default function HomePage() {
           <Route path="/" element={<SearchParams />} />
         </Routes>
       </ThemeContext.Provider>
-    </>
+    </BrowserRouter>
   );
 }

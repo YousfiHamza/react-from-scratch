@@ -1,13 +1,20 @@
 import { Component, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
+import { PetAPIResponse, Animal } from "../types/responsesType";
 
 import Carousel from "./Carousel.component";
 import ErrorBoundary from "./ErrorBoundary.component.";
 
 const Modal = lazy(() => import("./Modal"));
 
-class Details extends Component {
+type PropsType = {
+  params: {
+    id?: string;
+  };
+};
+
+class Details extends Component<PropsType> {
   // constructor(props) {
   //   super(props);
 
@@ -15,13 +22,23 @@ class Details extends Component {
   // }
   // we can get rid of the constructor because of the plugin we added to .babelrc
 
-  state = { loading: false, showModal: false };
+  state = {
+    loading: true,
+    showModal: false,
+    animal: "" as Animal,
+    breed: "",
+    city: "",
+    state: "",
+    description: "",
+    name: "",
+    images: [] as string[],
+  };
 
   async componentDidMount() {
     this.setState({ loading: true });
 
-    const res = await fetch(`http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`);
-    const json = await res.json();
+    const res = await fetch(`http://pets-v2.dev-apis.com/pets?id=${this.props.params.id || ""}`);
+    const json = (await res.json()) as PetAPIResponse;
 
     this.setState({ loading: false, ...json.pets[0] });
   }
@@ -75,7 +92,7 @@ class Details extends Component {
 }
 
 const WrappedDetails = () => {
-  const params = useParams();
+  const params = useParams<{ id: string }>();
   // const [theme] = useContext(ThemeContext); and pass theme as a prop to Details, better than using ThemeContext Consumer and the fct inside
   return (
     <ErrorBoundary>

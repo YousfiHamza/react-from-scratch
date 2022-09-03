@@ -1,7 +1,15 @@
-import { Component } from "react";
+import { Component, MouseEvent } from "react";
 
-class Carousel extends Component {
-  state = {
+type StateType = {
+  active: number;
+};
+
+type PropsType = {
+  images: string[];
+};
+
+class Carousel extends Component<PropsType> {
+  state: StateType = {
     active: 0,
   };
 
@@ -9,10 +17,12 @@ class Carousel extends Component {
     images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
-  handleClick = (event) => {
+  handleClick = (event: MouseEvent<HTMLElement>) => {
     // write it as arrow function to be able to access THIS - otherwise we will need to use the constructor to bind the function
+    if (!event.currentTarget.dataset.index) return;
     this.setState({
-      active: +event.target.dataset.index, // using the "+" to turn the index into a number because we are getting it from the DOM as string
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      active: +event.currentTarget.dataset.index, // using the "+" to turn the index into a number because we are getting it from the DOM as string
     });
   };
 

@@ -1,6 +1,11 @@
+import { Pet as PetType } from "../types/responsesType";
 import Pet from "./Pet.component";
 
-const Results = ({ pets }) => {
+type ResultsProps = {
+  pets: PetType[];
+};
+
+const Results = ({ pets }: ResultsProps) => {
   return (
     <div className="search">
       {!pets.length ? (
