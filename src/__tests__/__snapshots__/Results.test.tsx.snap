@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly with some pets - Shallow Version ! 1`] = `
+<div
+  className="search"
+>
+  <Pet
+    animal="dog"
+    breed="Havanese"
+    id={1}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/dog25.jpg",
+        "http://pets-images.dev-apis.com/pets/dog26.jpg",
+        "http://pets-images.dev-apis.com/pets/dog27.jpg",
+        "http://pets-images.dev-apis.com/pets/dog28.jpg",
+        "http://pets-images.dev-apis.com/pets/dog29.jpg",
+      ]
+    }
+    location="Seattle, WA"
+    name="Luna"
+  />
+  <Pet
+    animal="rabbit"
+    breed="Havanese"
+    id={2}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/rabbit0.jpg",
+      ]
+    }
+    location="Lexington, KY"
+    name="Charisse"
+  />
+  <Pet
+    animal="rabbit"
+    breed="Lab"
+    id={3}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/rabbit1.jpg",
+      ]
+    }
+    location="Dallas, TX"
+    name="Maitilde"
+  />
+  <Pet
+    animal="rabbit"
+    breed="Lab"
+    id={4}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/rabbit2.jpg",
+      ]
+    }
+    location="Tampa, FL"
+    name="Natalina"
+  />
+  <Pet
+    animal="reptile"
+    breed="Havanese"
+    id={5}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/reptile1.jpg",
+      ]
+    }
+    location="Tuscaloosa, AL"
+    name="Michail"
+  />
+  <Pet
+    animal="bird"
+    breed="Havanese"
+    id={6}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/bird2.jpg",
+      ]
+    }
+    location="Carol Stream, IL"
+    name="Gizela"
+  />
+  <Pet
+    animal="reptile"
+    breed="Havanese"
+    id={7}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/reptile2.jpg",
+      ]
+    }
+    location="Bridgeport, CT"
+    name="Laughton"
+  />
+  <Pet
+    animal="dog"
+    breed="Lab"
+    id={8}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/dog0.jpg",
+      ]
+    }
+    location="Charlotte, NC"
+    name="Si"
+  />
+  <Pet
+    animal="rabbit"
+    breed="Lab"
+    id={9}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/rabbit3.jpg",
+      ]
+    }
+    location="Springfield, IL"
+    name="Lyda"
+  />
+  <Pet
+    animal="dog"
+    breed="Lab"
+    id={10}
+    images={
+      [
+        "http://pets-images.dev-apis.com/pets/dog1.jpg",
+      ]
+    }
+    location="Tucson, AZ"
+    name="Jackquelin"
+  />
+</div>
+`;
+
+exports[`should renders correctly with no pets 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="search"
+      >
+        <h1>
+          No Pets Found
+        </h1>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="search"
+    >
+      <h1>
+        No Pets Found
+      </h1>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

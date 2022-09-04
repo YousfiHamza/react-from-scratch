@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { Animal, BreedListAPIResponse } from "../types/responsesType";
 
-type LocalCacheType = {
+export type LocalCacheType = {
   [index: string]: string[];
 };
 
-type Status = "unloaded" | "still loading ..." | "Loaded !";
+export type Status = "unloaded" | "still loading ..." | "Loaded !!!";
 
 const localCache: LocalCacheType = {};
 
-export default function useBreedList(animal: Animal): [string[], Status] {
+export default function useBreedList(animal: Animal = ""): [string[], Status] {
   const [breedList, setBreedList] = useState<string[]>([]);
-  const [status, setStatus] = useState<Status>("Loaded !");
+  const [status, setStatus] = useState<Status>("Loaded !!!");
 
   useEffect(() => {
     if (!animal) {
@@ -29,7 +29,7 @@ export default function useBreedList(animal: Animal): [string[], Status] {
       const json = (await res.json()) as BreedListAPIResponse;
       localCache[animal] = json.breeds || [];
       setBreedList(localCache[animal]);
-      setStatus("Loaded !");
+      setStatus("Loaded !!!");
     }
   }, [animal]);
 

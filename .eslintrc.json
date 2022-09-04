@@ -13,7 +13,8 @@
     "react/prop-types": 0, // 1 is warning & 2 is error
     "react/react-in-jsx-scope": 0, // 1 will alwas ask you to => import React from 'react'
     "@typescript-eslint/no-empty-function": 0,
-    "no-console": 2 //
+    "no-console": 2,
+    "@typescript-eslint/no-unsafe-member-access": 0
   },
   "plugins": ["react", "import", "jsx-a11y", "react-hooks", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
